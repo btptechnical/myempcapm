@@ -1,0 +1,22 @@
+code,locale,name,descr
+US,en,United States,Country in North America
+US,fr,États-Unis,Pays en Amérique du Nord
+US,es,Estados Unidos,País en América del Norte
+CA,en,Canada,Country in North America
+CA,fr,Canada,Pays en Amérique du Nord
+CA,es,Canadá,País en América del Norte
+MX,en,Mexico,Country in North America
+MX,fr,Mexique,Pays en Amérique du Nord
+MX,es,México,País en América del Norte
+BR,en,Brazil,Largest country in South America
+BR,fr,Brésil,Plus grand pays d'Amérique du Sud
+BR,es,Brasil,El país más grande de América del Sur
+FR,en,France,Country in Western Europe
+FR,fr,France,Pays en Europe de l'Ouest
+FR,es,Francia,País en Europa Occidental
+DE,en,Germany,Country in Central Europe
+DE,fr,Allemagne,Pays en Europe centrale
+DE,es,Alemania,País en Europa Central
+JP,en,Japan,Island nation in East Asia
+JP,fr,Japon,Pays insulaire en Asie de l'Est
+JP,es,Japón,País insular en Asia Oriental

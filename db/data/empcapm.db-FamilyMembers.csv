@@ -1,0 +1,7 @@
+ID,relationship,employee_ID,createdAt,createdBy,modifiedAt,modifiedBy,firstName,lastName,address,mobile,email
+a12f1b8e-4d56-47a3-b3a0-12d6ef111111,Spouse,550e8400-e29b-41d4-a716-446655440000,2023-01-20T09:10:00Z,admin,2023-05-21T15:30:00Z,manager,Emily,Doe,123 Main St,5551234568,emily.doe@example.com
+b23f2c9f-5e67-48b4-c4b1-23e7ff222222,Child,550e8400-e29b-41d4-a716-446655440000,2023-01-21T10:00:00Z,admin,2023-05-22T11:40:00Z,manager,Chris,Doe,123 Main St,5551234569,chris.doe@example.com
+c34f3d0a-6f78-49c5-d5c2-34f8gg333333,Spouse,6fa459ea-ee8a-3ca4-894e-db77e160355e,2023-02-15T14:20:00Z,hr_team,2023-06-12T09:25:00Z,hr_team,Robert,Smith,456 Maple Ave,5559876544,robert.smith@example.com
+d45f4e1b-7g89-40d6-e6d3-45h9hh444444,Parent,7c9e6679-7425-40de-944b-e07fc1f90ae7,2023-03-10T08:45:00Z,admin,2023-07-23T12:00:00Z,lead,Linda,Brown,789 Oak Rd,5556543211,linda.brown@example.com
+e56f5f2c-8h90-41e7-f7e4-56i0ii555555,Child,e902893a-9d22-3c7e-a7b8-d6e313b71d9f,2023-04-22T13:10:00Z,manager,2023-08-02T10:15:00Z,manager,Ananya,Kumar,22 Tech Park,5551122335,ananya.kumar@example.com
+f67f603d-9i01-42f8-g8f5-67j1jj666666,Spouse,16fd2706-8baf-433b-82eb-8c7fada847da,2023-05-30T11:35:00Z,admin,2023-09-11T09:20:00Z,admin,Daniel,Williams,77 George St,5554433222,daniel.williams@example.com
