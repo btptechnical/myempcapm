@@ -4,6 +4,4 @@ service MyEmpCapmService {
 @odata.draft.enabled
     entity Employees as projection on mydb.Employees;
     entity FamilyMembers as projection on mydb.FamilyMembers;
-    
-
 }
