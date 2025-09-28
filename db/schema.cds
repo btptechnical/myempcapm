@@ -14,8 +14,7 @@ entity Employees : cuid, managed, commonFieldsEMP {
     salary: Decimal(10,2);
     designation: String(100);
     country: Association to Countries;
-    FamilyMembers: Association to many FamilyMembers on FamilyMembers.employee = $self;
-
+    FamilyMembers: Composition of  many FamilyMembers on FamilyMembers.employee = $self;
 }
 
 entity FamilyMembers : cuid,managed,commonFieldsEMP {
