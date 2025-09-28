@@ -26,7 +26,10 @@
     "requires": {
       "db": {
         "kind": "sqlite",
-        "url": "db.sqlite"
+        "url": "db.sqlite",
+        "credentials": {
+          "database": "my.db"
+        }
       }
     }
   },

@@ -211,3 +211,7 @@ annotate service.Designations with {
         Common.Text.@UI.TextArrangement : #TextOnly,
 )};
 
+annotate service.Employees with @(Common.SideEffects #setSalary: {
+    SourceProperties: ['desigation_code'],
+    TargetProperties: ['salary']
+});
