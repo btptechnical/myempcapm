@@ -11,13 +11,18 @@ type commonFieldsEMP {
 }
 
 entity Employees : cuid, managed, commonFieldsEMP {
-    salary: Decimal(10,2);
-    designation: String(100);
+    salary: Decimal(10,2);   
     country: Association to Countries;
     FamilyMembers: Composition of  many FamilyMembers on FamilyMembers.employee = $self;
+    designation: Association to Designations;
 }
 
 entity FamilyMembers : cuid,managed,commonFieldsEMP {
     relationship: String;
     employee: Association to Employees;
+}
+
+entity Designations {
+    key code : String;
+    name: String;
 }
