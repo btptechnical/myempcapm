@@ -35,13 +35,13 @@ annotate service.Employees with @(
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'designation',
-                Value : designation,
+                Label : 'country_code',
+                Value : country_code,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'country_code',
-                Value : country_code,
+                Value : FamilyMembers.employee.designation_code,
+                Label : 'designation_code',
             },
         ],
     },
@@ -84,6 +84,11 @@ annotate service.Employees with @(
             $Type : 'UI.DataField',
             Label : 'email',
             Value : email,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : FamilyMembers.employee.designation_code,
+            Label : 'designation_code',
         },
     ],
 );
@@ -185,4 +190,28 @@ annotate service.FamilyMembers with @(
         ],
     },
 );
+
+annotate service.Employees with {
+    designation @(
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Designations',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : designation_code,
+                    ValueListProperty : 'code',
+                },
+            ],
+            Label : 'Designation',
+        },
+        Common.ValueListWithFixedValues : true,
+        Common.Text : designation_code,
+)};
+
+annotate service.Designations with {
+    code @(
+        Common.Text : name,
+        Common.Text.@UI.TextArrangement : #TextOnly,
+)};
 
