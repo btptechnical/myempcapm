@@ -15,17 +15,25 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2",
-    "@cap-js/cds-types": "^0.13.0"
+    "@cap-js/cds-types": "^0.13.0",
+    "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-uiempcapm": "cds watch --open uiempcapm/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "cds": {
-    "requires":{
-      "db":{
-        "kind":"sqlite",
+    "requires": {
+      "db": {
+        "kind": "sqlite",
         "url": "db.sqlite"
       }
     }
-  }
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/uiempcapm"
+  ]
 }
