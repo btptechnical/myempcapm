@@ -1,41 +1,60 @@
 const cds = require('@sap/cds');
 
-class MyEmpCapmService extends cds.ApplicationService{
-    init(){
-        const { Employees } = this.entities;
-        this.before('UPDATE', Employees.drafts, async (req) => {
-            if(!req.data.email){
+class MyEmpCapmService extends cds.ApplicationService {
+  init() {
+    const { Employees } = this.entities;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const mobileRegex = /^[0-9]{10}$/;
 
-            if (!req.data.email || req.data.email.trim() === "") {
-            throw req.error(400, "Email cannot be blank", "email");
-    }
-                
-            }
-
-            if(req.data?.designation_code){
-                let code = req.data?.designation_code;
-                let osalary = 0;
-                 switch (code) {
-                    case 'DE01':
-                        osalary = 12000;
-                        break;
-                    case 'DE02':
-                        osalary = 10000;
-                        break;
-                    case 'DE03':
-                        osalary = 9000;
-                        break;
-                    case 'DE04':
-                        osalary = 8000;
-                        break;
-                    default:
-                        osalary = 0; // optional: fallback if no match
-                }
-                req.data.salary = osalary;
-            }
+    this.before(['CREATE', 'UPDATE'], Employees, async (req) => {
+      // Validate email
+      if (!req.data.email || !emailRegex.test(req.data.email)) {
+        req.error({
+          code: 400,
+          target: 'email',
+          message: "Email cannot be blank"
         });
-        return super.init();
-    }
+        return; // stop further execution
+      }
+
+      //handle valid mobile no.
+      if (!req.data.mobile || !mobileRegex.test(req.data.mobile)) {
+            req.error({
+                code: 400,
+                target: 'mobile',
+                message: "Invalid mobile number"
+            });
+    return;
+  }
+
+      // Handle designation_code → salary mapping
+      if (req.data?.designation_code) {
+        let code = req.data.designation_code;
+        let osalary = 0;
+
+        switch (code) {
+          case 'DE01':
+            osalary = 12000;
+            break;
+          case 'DE02':
+            osalary = 10000;
+            break;
+          case 'DE03':
+            osalary = 9000;
+            break;
+          case 'DE04':
+            osalary = 8000;
+            break;
+          default:
+            osalary = 0; // fallback if no match
+        }
+
+        req.data.salary = osalary;
+      }
+    });
+
+    return super.init();
+  }
 }
 
 module.exports = MyEmpCapmService;
