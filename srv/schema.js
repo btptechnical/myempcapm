@@ -6,11 +6,9 @@ class MyEmpCapmService extends cds.ApplicationService{
         this.before('UPDATE', Employees.drafts, async (req) => {
             if(!req.data.email){
 
-            // req.error({
-            //     code: 400,
-            //     target: email,
-            //     message: "Email can not be blank"
-            // });
+            if (!req.data.email || req.data.email.trim() === "") {
+            throw req.error(400, "Email cannot be blank", "email");
+    }
                 
             }
 
