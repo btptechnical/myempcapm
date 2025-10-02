@@ -143,6 +143,22 @@
                     "route": "FamilyMembersObjectPage"
                   }
                 }
+              },
+              "content": {
+                "header": {
+                  "actions": {
+                    "updateStatusBtn": {
+                      "press": "uiempcapm.ext.controller.StatusChange.onStatusChange",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "{i18n>activate}",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "EditAction"
+                      }
+                    }
+                  }
+                }
               }
             }
           }
