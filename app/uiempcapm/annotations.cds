@@ -43,6 +43,11 @@ annotate service.Employees with @(
                 Value : designation_code,
                 Label : 'designation_code',
             },
+            {
+                $Type : 'UI.DataField',
+                Value : status.name,
+                Label : 'Status',
+            },
         ],
     },
     UI.Facets : [
@@ -215,3 +220,7 @@ annotate service.Employees with @(Common.SideEffects #setSalary: {
     SourceProperties: ['desigation_code'],
     TargetProperties: ['salary']
 });
+annotate service.Status with {
+    name @Common.FieldControl : #ReadOnly
+};
+
