@@ -17,14 +17,14 @@ sap.ui.define([
             var omInParameters = {
                     model: this.getModel(),
                     parameterValues: [{
-                        type: "employeeID",
+                        type: "employeeId",
                         value: oID
                     }],
                     skipParameterDialog: true
             };
             this.editFlow.invokeAction(oAction,omInParameters).then(function(response){
                 if(response){
-
+                    this._controller.getExtensionAPI().refresh();
                 }
             }.bind(this));
         }
