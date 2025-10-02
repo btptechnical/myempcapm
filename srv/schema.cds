@@ -7,7 +7,7 @@ service MyEmpCapmService {
     entity Designations as projection on mydb.Designations;
     entity Status as projection on mydb.Status;
 
-    action updateEMPStatus(employeeID: String) returns String;
+    action updateEMPStatus(employeeId: String) returns String;
 }
 
     
