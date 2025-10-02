@@ -1,4 +1,5 @@
 const cds = require('@sap/cds');
+const { UPDATE } = require('@sap/cds/lib/ql/cds-ql');
 
 class MyEmpCapmService extends cds.ApplicationService {
   init() {
@@ -50,6 +51,20 @@ class MyEmpCapmService extends cds.ApplicationService {
         }
 
         req.data.salary = osalary;
+      }
+    });
+
+    this.on('updateEMPStatus', async (req) => {
+      if(req.data?.employeeId){
+        let updateStatus = await UPDATE(Employees, req.data?.employeeID).with({
+          status_code: 'ACT'
+        });
+          if(updateStatus){
+            req.info(200, "Employee Activated");          
+          }
+          else{
+            req.error(400, "Failed to Activate Employee");
+          }
       }
     });
 
