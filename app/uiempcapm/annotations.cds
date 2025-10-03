@@ -48,6 +48,11 @@ annotate service.Employees with @(
                 Value : status.name,
                 Label : 'Status',
             },
+            {
+                $Type : 'UI.DataField',
+                Value : favProduct,
+                Label : 'favProduct',
+            },
         ],
     },
     UI.Facets : [
@@ -89,6 +94,11 @@ annotate service.Employees with @(
             $Type : 'UI.DataField',
             Label : 'email',
             Value : email,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : favProduct,
+            Label : 'favProduct',
         },
     ],
 );
@@ -223,4 +233,23 @@ annotate service.Employees with @(Common.SideEffects #setSalary: {
 annotate service.Status with {
     name @Common.FieldControl : #ReadOnly
 };
+
+
+
+annotate service.Employees with {
+    favProduct @(
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'ProductSet',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : favProduct,
+                    ValueListProperty : 'ProductName',
+                },
+            ],
+            Label : 'Fav Product',
+        },
+        Common.ValueListWithFixedValues : false,
+)};
 

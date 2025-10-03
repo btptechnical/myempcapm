@@ -2,10 +2,15 @@ const cds = require('@sap/cds');
 const { UPDATE } = require('@sap/cds/lib/ql/cds-ql');
 
 class MyEmpCapmService extends cds.ApplicationService {
-  init() {
-    const { Employees } = this.entities;
+  async init() {
+    const { Employees, ProductSet } = this.entities;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const mobileRegex = /^[0-9]{10}$/;
+    const nwsystem = await cds.connect.to("northwind");
+
+    this.on('READ', ProductSet, async (req) => {
+      return  nwsystem.run(req.query);
+    });
 
     this.before(['CREATE', 'UPDATE'], Employees, async (req) => {
       // Validate email
@@ -56,7 +61,7 @@ class MyEmpCapmService extends cds.ApplicationService {
 
     this.on('updateEMPStatus', async (req) => {
       if(req.data?.employeeId){
-        let updateStatus = await UPDATE(Employees, req.data?.employeeID).with({
+        let updateStatus = await UPDATE(Employees, req.data?.employeeId).with({
           status_code: 'ACT'
         });
           if(updateStatus){

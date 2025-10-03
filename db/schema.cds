@@ -15,7 +15,8 @@ entity Employees : cuid, managed, commonFieldsEMP {
     country: Association to Countries;
     FamilyMembers: Composition of  many FamilyMembers on FamilyMembers.employee = $self;
     designation: Association to Designations;
-    status: Association to Status default 'DCT';
+    status: Association to Status default 'DCT';    
+    favProduct: String default 'NAN';
 }
 
 entity FamilyMembers : cuid,managed,commonFieldsEMP {

@@ -17,7 +17,7 @@ sap.ui.define([
             var omInParameters = {
                     model: this.getModel(),
                     parameterValues: [{
-                        type: "employeeId",
+                        name: "employeeId",
                         value: oID
                     }],
                     skipParameterDialog: true
